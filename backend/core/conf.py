@@ -58,7 +58,7 @@ class Settings(BaseSettings):
     # Database
     DATABASE_ECHO: bool = False
     DATABASE_POOL_ECHO: bool = False
-    DATABASE_SCHEMA: str = 'fba'
+    DATABASE_SCHEMA: str = 'whcas'
     DATABASE_CHARSET: str = 'utf8mb4'
 
     # Redis
@@ -80,7 +80,7 @@ class Settings(BaseSettings):
     ]
 
     # JWT
-    JWT_USER_REDIS_PREFIX: str = 'fba:user'
+    JWT_USER_REDIS_PREFIX: str = 'fba:sys'
     JWT_USER_REDIS_EXPIRE_SECONDS: int = 60 * 60 * 24 * 7
 
     # RBAC

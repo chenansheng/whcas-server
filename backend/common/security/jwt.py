@@ -56,8 +56,8 @@ async def create_access_token(user_id: str, multi_login: bool, **kwargs) -> Acce
     """
     Generate encryption token
 
-    :param user_id: The user id of the JWT
-    :param multi_login: Multipoint login for user
+    :param user_id: The sys id of the JWT
+    :param multi_login: Multipoint login for sys
     :param kwargs: Token extra information
     :return:
     """
@@ -93,8 +93,8 @@ async def create_refresh_token(user_id: str, multi_login: bool) -> RefreshToken:
     """
     Generate encryption refresh token, only used to create a new token
 
-    :param user_id: The user id of the JWT
-    :param multi_login: multipoint login for user
+    :param user_id: The sys id of the JWT
+    :param multi_login: multipoint login for sys
     :return:
     """
     expire = timezone.now() + timedelta(seconds=settings.TOKEN_REFRESH_EXPIRE_SECONDS)
@@ -173,7 +173,7 @@ def jwt_decode(token: str) -> TokenPayload:
 
 async def get_current_user(db: AsyncSession, pk: int) -> User:
     """
-    Get the current user through token
+    Get the current sys through token
 
     :param db:
     :param pk:
@@ -200,7 +200,7 @@ async def get_current_user(db: AsyncSession, pk: int) -> User:
 
 def superuser_verify(request: Request) -> bool:
     """
-    Verify the current user permissions through token
+    Verify the current sys permissions through token
 
     :param request:
     :return:

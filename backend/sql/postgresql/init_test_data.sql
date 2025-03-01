@@ -12,7 +12,7 @@ values  (1, '测试', 'test', 0, '', null, 0, null, null, 0, 0, 1, null, null, '
         (3, '工作台', 'Workplace', 0, null, 'workplace', 1, '/dashboard/workplace/index.vue', null, 1, 1, 1, null, 2, '2023-07-27 19:17:59', null),
         (4, '系统管理', 'admin', 0, 'IconSettings', 'admin', 0, null, null, 1, 1, 1, null, null, '2023-07-27 19:23:00', null),
         (5, '部门管理', 'SysDept', 0, null, 'sys-dept', 1, '/admin/dept/index.vue', null, 1, 1, 1, null, 4, '2023-07-27 19:23:42', null),
-        (6, '用户管理', 'SysUser', 0, null, 'sys-user', 1, '/admin/user/index.vue', null, 1, 1, 1, null, 4, '2023-07-27 19:25:13', null),
+        (6, '用户管理', 'SysUser', 0, null, 'sys-sys', 1, '/admin/sys/index.vue', null, 1, 1, 1, null, 4, '2023-07-27 19:25:13', null),
         (7, '角色管理', 'SysRole', 0, null, 'sys-role', 1, '/admin/role/index.vue', null, 1, 1, 1, null, 4, '2023-07-27 19:25:45', null),
         (8, '菜单管理', 'SysMenu', 0, null, 'sys-menu', 1, '/admin/menu/index.vue', null, 1, 1, 1, null, 4, '2023-07-27 19:45:29', null),
         (9, 'API 管理', 'SysApi', 0, null, 'sys-api', 1, '/admin/api/index.vue', null, 1, 1, 1, null, 4, '2023-07-27 19:24:12', null),
