@@ -15,13 +15,12 @@ RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list.d/debi
 ENV UV_COMPILE_BYTECODE=1 \
     UV_NO_CACHE=1 \
     UV_LINK_MODE=copy \
-    UV_PROJECT_ENVIRONMENT=/usr/local \
-    UV_INDEX=https://mirrors.aliyun.com/pypi/simple
+    UV_PROJECT_ENVIRONMENT=/usr/local
 
 # Install dependencies with cache
 RUN --mount=type=cache,target=/root/.cache/uv \
-    --mount=type=bind,source=backend/uv.lock,target=uv.lock \
-    --mount=type=bind,source=backend/pyproject.toml,target=pyproject.toml \
+    --mount=type=bind,source=uv.lock,target=uv.lock \
+    --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
     uv sync --frozen --no-default-groups --group server
 
 # === Runtime base server image ===
@@ -43,7 +42,7 @@ WORKDIR /fba
 ENV PYTHONPATH=/fba
 RUN python3 backend/scripts/init_plugin.py
 
-# === FastPAI server iamge ===
+# === FastAPI server image ===
 FROM base_server AS fastapi_server
 
 WORKDIR /fba
@@ -57,7 +56,7 @@ EXPOSE 8001
 
 CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port","8000"]
 
-# === Celery server iamge ===
+# === Celery server image ===
 FROM base_server AS celery
 
 WORKDIR /fba/backend/
